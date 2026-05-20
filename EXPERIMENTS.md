@@ -84,8 +84,8 @@ Menggunakan Adam dan epoch yang lebih banyak (50) akan meningkatkan akurasi seca
 
 **Hasil:**
 - Test accuracy: 88.05%
-- Train accuracy: 91.12%
-- Validation accuracy: 88.43%
+- Train accuracy: 91.05%
+- Validation accuracy: 89.10%
 - Train time: 363.8s
 - Apakah overfit/underfit? overfit
 
