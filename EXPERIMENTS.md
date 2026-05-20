@@ -62,10 +62,10 @@ Gunakan template di bawah untuk SETIAP eksperimen.
 
 **Hasil:**
 - Test accuracy: 86.15%
-- Train accuracy: ___%
-- Validation accuracy: ___%
+- Train accuracy: 87.51%
+- Validation accuracy: 86.72%
 - Train time: 50.3s
-- Apakah overfit/underfit? Tidak dapat ditentukan hanya dari Test Accuracy.
+- Apakah overfit/underfit? Goodfit.
 
 **Observasi & Insight:**
 > Akurasi tes kembali sedikit meningkat menjadi 86.15%, menunjukkan bahwa model mungkin masih mendapat manfaat dari kedalaman yang lebih besar. Waktu training relatif stabil dibandingkan Eksperimen #1.
@@ -76,25 +76,24 @@ Gunakan template di bawah untuk SETIAP eksperimen.
 ---
 
 ### Eksperimen #3
-
 **Apa yang diubah dari baseline:**
-> Mengganti jumlah hidden layer dari 1 menjadi 4, sisanya tetap (Neurons=64, Activation=relu, Optimizer=sgd, LR=0.01, Batch=32, Epochs=10, Dropout=0.0).
+Hidden Layers=1, Neurons=128, Activation=tanh, Optimizer=adam, LR=0.001, Batch=32, Epochs=50, Dropout=0.3.
 
 **Hipotesis sebelum run:**
-> Akurasi bisa terus meningkat, namun ada risiko overfitting atau diminishing returns jika model terlalu dalam untuk dataset ini.
+Menggunakan Adam dan epoch yang lebih banyak (50) akan meningkatkan akurasi secara signifikan meskipun hanya 1 layer.
 
 **Hasil:**
-- Test accuracy: 85.56%
-- Train accuracy: ___%
-- Validation accuracy: ___%
-- Train time: 49.4s
-- Apakah overfit/underfit? Tidak dapat ditentukan hanya dari Test Accuracy.
+- Test accuracy: 88.05%
+- Train accuracy: 91.12%
+- Validation accuracy: 88.43%
+- Train time: 363.8s
+- Apakah overfit/underfit? overfit
 
 **Observasi & Insight:**
-> Akurasi tes sedikit menurun dari Eksperimen #2 (86.15% menjadi 85.56%), yang mungkin mengindikasikan bahwa 3 hidden layer mungkin sudah optimal atau mendekati optimal untuk konfigurasi ini, atau terjadi overfitting ringan yang tidak terlihat dari data tabel ini.
+Hasil terbaik sejauh ini, namun memakan waktu sangat lama.
 
 **Rencana eksperimen berikutnya:**
-> Coba satu penambahan hidden layer lagi (menjadi 5) untuk mengkonfirmasi tren ini, kemudian pertimbangkan perubahan hyperparameter lain.
+> Coba kembali ke eksperimen 2 dengan hidden layer menjadi 5 untuk mengkonfirmasi tren ini, kemudian pertimbangkan perubahan hyperparameter lain.
 
 ---
 
@@ -108,39 +107,39 @@ Gunakan template di bawah untuk SETIAP eksperimen.
 
 **Hasil:**
 - Test accuracy: 86.48%
-- Train accuracy: ___%
-- Validation accuracy: ___%
+- Train accuracy: 87.78%
+- Validation accuracy: 85.92%
 - Train time: 50.2s
-- Apakah overfit/underfit? Tidak dapat ditentukan hanya dari Test Accuracy.
+- Apakah overfit/underfit? Goodfit.
 
 **Observasi & Insight:**
 > Akurasi tes menunjukkan sedikit peningkatan lagi menjadi 86.48%, menjadikannya yang tertinggi sejauh ini untuk variasi hidden layer. Ini menunjukkan bahwa dengan 5 hidden layer, model dapat mempelajari representasi yang lebih baik tanpa terlalu banyak dampak negatif pada waktu training.
 
 **Rencana eksperimen berikutnya:**
-> Berdasarkan hasil ini, 5 hidden layer tampaknya menjadi titik yang baik. Selanjutnya, eksplorasi dampak dari jumlah neuron per layer.
+> Berdasarkan hasil ini, 5 hidden layer tampaknya menjadi titik yang baik. Selanjutnya, eksplorasi dampak dari menggunakan tanh + adam dengan 1 layer dan 128 neuron serta learning 0.001.
 
 ---
 
 ### Eksperimen #5
 
 **Apa yang diubah dari baseline:**
-> Mengganti jumlah neuron per layer dari 64 menjadi 32, sisanya tetap (Hidden=1, Activation=relu, Optimizer=sgd, LR=0.01, Batch=32, Epochs=10, Dropout=0.0).
+Hidden Layers=1, Neurons=128, Activation=tanh, Optimizer=adam, LR=0.001, Batch=32, Epochs=10, Dropout=0.3.
 
 **Hipotesis sebelum run:**
-> Mengurangi jumlah neuron per layer akan mengurangi kapasitas model. Akurasi tes kemungkinan akan menurun, dan waktu training juga akan lebih cepat.
+Menguji apakah performa tinggi Adam di Exp #3 karena jumlah epochnya atau memang optimizernya.
 
 **Hasil:**
-- Test accuracy: 84.90%
-- Train accuracy: ___%
-- Validation accuracy: ___%
-- Train time: 38.6s
-- Apakah overfit/underfit? Tidak dapat ditentukan hanya dari Test Accuracy.
+- Test accuracy: 86.50%
+- Train accuracy: 87.60%
+- Validation accuracy: 87.03%
+- Train time: 68.2s
+- Apakah overfit/underfit? Goodfit
 
 **Observasi & Insight:**
-> Akurasi tes menurun dibandingkan baseline (84.90% vs ~85%), mengkonfirmasi hipotesis bahwa mengurangi neuron per layer menurunkan kapasitas model. Waktu training juga lebih cepat.
+Dengan hanya 10 epoch, Adam + Tanh sudah mengalahkan 5 layer SGD.
 
 **Rencana eksperimen berikutnya:**
-> Eksplorasi dengan menambah jumlah neuron per layer (misal 128 atau 256) untuk melihat apakah ada peningkatan akurasi.
+> -
 
 ---
 
@@ -149,14 +148,14 @@ Gunakan template di bawah untuk SETIAP eksperimen.
 Setelah semua eksperimen, salin konfigurasi terbaik kalian ke sini:
 
 ```python
-HIDDEN_LAYERS     = ?
-NEURONS_PER_LAYER = ?
-ACTIVATION        = ?
-DROPOUT_RATE      = ?
-OPTIMIZER         = ?
-LEARNING_RATE     = ?
-BATCH_SIZE        = ?
-EPOCHS            = ?
+HIDDEN_LAYERS     = 1
+NEURONS_PER_LAYER = 128
+ACTIVATION        = tanh
+DROPOUT_RATE      = 0.3
+OPTIMIZER         = adam
+LEARNING_RATE     = 0.001
+BATCH_SIZE        = 32
+EPOCHS            = 50
 ```
 
-**Test accuracy final: ___%**
+**Test accuracy final: 88.05%**
