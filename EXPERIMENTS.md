@@ -13,11 +13,11 @@ Isi tabel ini setelah selesai semua eksperimen.
 | # | Hidden | Neurons | Activation | Optimizer | LR     | Batch | Epochs | Dropout | Test Acc | Train Time |
 |---|--------|---------|------------|-----------|--------|-------|--------|---------|----------|------------|
 | 0 | 1      | 64      | relu       | sgd       | 0.01   | 32    | 10     | 0.0     | ~85%     | ~30s       |
-| 1 |        |         |            |           |        |       |        |         |          |            |
-| 2 |        |         |            |           |        |       |        |         |          |            |
-| 3 |        |         |            |           |        |       |        |         |          |            |
-| 4 |        |         |            |           |        |       |        |         |          |            |
-| 5 |        |         |            |           |        |       |        |         |          |            |
+| 1 | 2       |  64       |  relu          | sgd          | 0.01       | 32   |     10       | 0.0       |  85.57%       |     47.8s     |
+| 2 |   3     |     64    |     relu       |     sgd      |   0.01     |   32    |    10    |     0.0    |   86.15%       |    50.3s        |
+| 3 |   4     |    64     |       relu     |   sgd        |0.01        |    32   |   10     |      0.0   |   85.56%       |     49.4s       |
+| 4 |   5     |     64    |        relu    |    sgd       |   0.01     |    32   |    10    |    0.0     |     86.48%     |     50.2s       |
+| 5 |    1    |     32    |      relu      |     sgd      |     0.01   |   32    |    10    |    0.0     |    84.90%      |   38.6s         |
 
 > **Eksperimen #0** = baseline (jangan ubah, ini patokan kalian).
 
