@@ -123,10 +123,10 @@ Hasil terbaik sejauh ini, namun memakan waktu sangat lama.
 ### Eksperimen #5
 
 **Apa yang diubah dari baseline:**
-Hidden Layers=1, Neurons=128, Activation=tanh, Optimizer=adam, LR=0.001, Batch=32, Epochs=10, Dropout=0.3.
+> Hidden Layers=1, Neurons=128, Activation=tanh, Optimizer=adam, LR=0.001, Batch=32, Epochs=10, Dropout=0.3.
 
 **Hipotesis sebelum run:**
-Menguji apakah performa tinggi Adam di Exp #3 karena jumlah epochnya atau memang optimizernya.
+> Menguji apakah performa tinggi Adam di Exp #3 karena jumlah epochnya atau memang optimizernya.
 
 **Hasil:**
 - Test accuracy: 86.50%
@@ -136,7 +136,7 @@ Menguji apakah performa tinggi Adam di Exp #3 karena jumlah epochnya atau memang
 - Apakah overfit/underfit? Goodfit
 
 **Observasi & Insight:**
-Dengan hanya 10 epoch, Adam + Tanh sudah mengalahkan 5 layer SGD.
+> Dengan hanya 10 epoch, Adam + Tanh sudah mengalahkan 5 layer SGD.
 
 **Rencana eksperimen berikutnya:**
 > -
